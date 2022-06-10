@@ -1093,6 +1093,7 @@ button,
   -webkit-column-gap: 40px;
   -moz-column-gap: 40px;
   column-gap: 40px;
+  row-gap: 30px;
   list-style: none;
   padding: 0;
 }
