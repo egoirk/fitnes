@@ -1776,7 +1776,8 @@ button,
 .action {
   position: relative;
   color: #1c3374;
-  padding: 110px 103px 60px;
+  padding-top: 110px;
+  padding-bottom: 60px;
   font-family: "Roboto Condensed", "Arial", sans-serif;
 }
 
@@ -1880,6 +1881,12 @@ button,
   flex-shrink: 0;
 }
 
+.action__picture img {
+  height: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
 .action__list {
   width: calc((100% - 40px) / 2);
   display: -webkit-box;
@@ -1934,31 +1941,13 @@ button,
 
 .action__info-paragraf {
   max-height: 150px;
-  overflow-y: scroll;
+  overflow: hidden;
   margin-right: -10px;
-}
-
-.action__info-paragraf::-webkit-scrollbar {
-  width: 3px;
-}
-
-.action__info-paragraf::-webkit-scrollbar-thumb {
-  border-radius: 2px;
-  background: #f8f9fc;
 }
 
 .action__item-paragraf {
   max-height: 70px;
-  overflow-y: scroll;
-}
-
-.action__item-paragraf::-webkit-scrollbar {
-  width: 3px;
-}
-
-.action__item-paragraf::-webkit-scrollbar-thumb {
-  border-radius: 2px;
-  background: #ed0233;
+  overflow: hidden;
 }
 
 .reviews {
@@ -3482,12 +3471,10 @@ button,
   }
 
   .action__info-paragraf {
-    overflow: hidden;
     max-height: 92px;
   }
 
   .action__item-paragraf {
-    overflow: hidden;
     max-height: 55px;
   }
 
