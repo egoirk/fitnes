@@ -784,7 +784,7 @@ button,
   text-align: right;
 }
 
-.header__intro-text h2 {
+.header__intro-text h1 {
   font-family: "Bebas Neue", "Arial", sans-serif;
   font-size: 109px;
   font-weight: 700;
@@ -2448,7 +2448,7 @@ button,
     line-height: 41px;
   }
 
-  .header__intro-text h2 {
+  .header__intro-text h1 {
     margin: 0 29px 0 25px;
     font-size: 86px;
     line-height: 86px;
@@ -2937,7 +2937,7 @@ button,
   }
 
   .contacts__form input {
-    width: calc((100% - 61px)/2);
+    width: calc((100% - 61px) / 2);
     margin-right: 60px;
     padding-top: 10px;
     margin-bottom: 26px;
@@ -3075,7 +3075,7 @@ button,
     line-height: 34px;
   }
 
-  .header__intro-text h2 {
+  .header__intro-text h1 {
     margin: 0;
     font-size: 78px;
     line-height: 78px;
@@ -3551,9 +3551,6 @@ button,
   }
 
   .contacts__info-area {
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
     padding-left: 15px;
     -webkit-box-align: start;
     -ms-flex-align: start;
