@@ -917,7 +917,7 @@ button,
   line-height: 27px;
   font-weight: 400;
   color: #102654;
-  padding-bottom: 0;
+  padding-bottom: 31px;
 }
 
 .about__media-wrapper {
@@ -1484,8 +1484,8 @@ button,
   margin-top: 58px;
   margin-bottom: 30px;
   margin-left: 55px;
-  width: 160px;
-  height: 178px;
+  width: 165px;
+  height: 205px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1548,7 +1548,7 @@ button,
   line-height: 21px;
   padding: 0;
   margin: 0;
-  padding-left: 27px;
+  padding-left: 16px;
 }
 
 .coaches__achiev li {
@@ -2506,6 +2506,10 @@ button,
     margin: 0 0 3px;
   }
 
+  .about__paragraph--header {
+    padding-bottom: 31px;
+  }
+
   .about__paragraph--hidden {
     display: none;
   }
@@ -2513,15 +2517,15 @@ button,
   .about__image img {
     width: 678px;
     max-width: none;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
   }
 
   .about__video {
     bottom: -83px;
     left: 50%;
-    width: 39.2%;
-    height: 48.25%;
+    width: 266px;
+    height: 167px;
     -webkit-transform: translateX(-50%);
     -ms-transform: translateX(-50%);
     transform: translateX(-50%);
@@ -3115,6 +3119,10 @@ button,
     margin: 0 0 24px;
   }
 
+  .about__paragraph--header {
+    padding-bottom: 0;
+  }
+
   .about__media-wrapper {
     width: calc(100% + 30px);
     margin-left: -15px;
@@ -3123,6 +3131,7 @@ button,
   .about__image img {
     width: 320px;
     max-width: none;
+    margin: 0 auto;
   }
 
   .about__image {
