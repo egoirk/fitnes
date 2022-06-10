@@ -1,0 +1,68 @@
+.button {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 14px;
+  letter-spacing: 0.05em;
+  color: $color-default-white;
+  text-transform: uppercase;
+  background-color: transparent;
+  text-decoration: none;
+  text-align: center;
+  border: 4px solid $color-default-white;
+  cursor: pointer;
+}
+
+.arrow-control {
+  content: "";
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  display: inline-block;
+  top: calc(50% - 33px);
+  padding: 3px;
+  border-top: none;
+  border-right: 1px solid #afafaf;
+  border-bottom: 1px solid #afafaf;
+  border-left: none;
+  background: none;
+  cursor: pointer;
+  outline: none;
+
+  &:focus,
+  &:active {
+    border-width: 2px;
+    border-color: $sapphire;
+  }
+
+  @include vp-1199 {
+    top: calc(50% - 26px);
+  }
+
+  @include vp-767 {
+    width: 14px;
+    height: 14px;
+    top: calc(50% - 21px);
+  }
+}
+
+.arrow-control--forward {
+  right: -52px;
+  transform: rotate(-45deg);
+
+  @include vp-767 {
+    right: -28px;
+  }
+}
+
+.arrow-control--backward {
+  left: -52px;
+  transform: rotate(135deg);
+
+  @include vp-767 {
+    left: -28px;
+  }
+}
+
+.arrow-control--no-js {
+  display: none;
+}

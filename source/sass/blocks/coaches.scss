@@ -1,0 +1,285 @@
+.coaches {
+  max-width: 1400px;
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0 103px 80px;
+  margin: 0 auto;
+  font-family: "Roboto Condensed", "Arial", sans-serif;
+
+  @include vp-1199 {
+    align-items: center;
+    padding: 0 100px 70px;
+  }
+
+  @include vp-767 {
+    padding: 0;
+    margin: 0 auto 16px;
+    width: 71%;
+  }
+}
+
+.coaches h2 {
+  font-family: "Bebas Neue", "Arial", sans-serif;
+  font-weight: 700;
+  font-size: 49px;
+  line-height: 49px;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  margin: 0 0 20px;
+  color: $sapphire;
+  padding-left: 2px;
+
+  @include vp-1199 {
+    font-size: 42px;
+    line-height: 42px;
+  }
+
+  @include vp-767 {
+    font-size: 32px;
+    line-height: 32px;
+  }
+}
+
+.coaches__wrapper {
+  width: 100%;
+  position: relative;
+  margin-top: 36px;
+
+  @include vp-1199 {
+    width: 568px;
+    margin-top: 25px;
+  }
+
+  @include vp-767 {
+    width: 227px;
+    padding: 0;
+    margin: 25px auto 25px;
+  }
+}
+
+.coaches__viewport {
+  width: 100%;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+}
+
+.coaches__list {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  transition: left 0.3s;
+
+  &--no-js {
+    width: 100%;
+    flex-wrap: wrap;
+
+    li {
+      &:nth-child(4n+4) {
+        margin-right: 0;
+      }
+
+      @include vp-1199 {
+        &:nth-child(2n+2) {
+          margin-right: 0;
+        }
+      }
+
+      @include vp-767 {
+        &:nth-child(n) {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+.coaches__item {
+  width: calc((100% - 120px) / 4);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+  margin-right: 40px;
+  margin-bottom: 40px;
+  color: $color-default-white;
+  background-color: rgba($sapphire, 0.5);
+  overflow: hidden;
+  font-family: "Roboto Condensed", "Arial", sans-serif;
+
+  &:hover {
+    div {
+      &:first-child {
+        z-index: 3;
+        display: flex;
+      }
+    }
+
+    span {
+      display: none;
+    }
+  }
+
+  @include vp-1199 {
+    width: calc((100% - 30px) / 2);
+    margin-right: 30px;
+    margin-bottom: 30px;
+  }
+
+  @include vp-767 {
+    width: 100%;
+    margin-right: 0;
+  }
+}
+
+.coaches__item span {
+  position: absolute;
+  bottom: 24px;
+  z-index: 2;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 27px;
+
+  @include vp-1199 {
+    bottom: 22px;
+    left: 85px;
+  }
+}
+
+.coaches__item-wrapper {
+  width: 100%;
+  height: 294px;
+  position: relative;
+  left: 0;
+  top: 0;
+  z-index: 0;
+  color: $color-default-white;
+  background-color: rgba($sapphire, 0.89);
+
+  @include vp-1199 {
+    padding: 52px 0 25px;
+  }
+
+  @include vp-767 {
+    height: 274px;
+    padding: 43px 0 25px;
+  }
+}
+
+.coaches__info {
+  margin-top: 58px;
+  margin-bottom: 30px;
+  margin-left: 55px;
+  width: 160px;
+  height: 178px;
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  overflow-y: scroll;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0;
+
+  &::-webkit-scrollbar {
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 2px;
+    background: $ghost-white;
+  }
+
+  @include vp-1199 {
+    margin: 0 auto;
+    padding-right: 5px;
+    width: 180px;
+    height: 205px;
+  }
+}
+
+.coaches__info h3 {
+  margin-top: -7px;
+  margin-left: -10px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 27px;
+  font-family: "Roboto Condensed", "Arial", sans-serif;
+
+  @include vp-1199 {
+    margin: 0;
+    padding: 0;
+  }
+}
+
+.coaches__info h4 {
+  margin: 0;
+  color: $spindle;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  margin-top: -22px;
+  padding-right: 9px;
+  padding-bottom: 32px;
+
+  @include vp-1199 {
+    margin: -4px 0 0;
+    padding: 0;
+    padding-bottom: 32px;
+  }
+}
+
+.coaches__info ul {
+  list-style: disc;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  font-family: "Roboto Condensed", "Arial", sans-serif;
+}
+
+.coaches__achiev {
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 21px;
+  padding: 0;
+  margin: 0;
+  padding-left: 27px;
+
+  @include vp-1199 {
+    font-size: 12px;
+  }
+}
+
+.coaches__achiev li {
+  padding-bottom: 13px;
+}
+
+.coaches__photo {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: $color-default-white;
+  background-color: $sapphire;
+
+  picture {
+    width: 100%;
+  }
+
+  img {
+    width: 100%;
+  }
+}
