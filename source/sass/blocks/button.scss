@@ -17,7 +17,6 @@
   width: 24px;
   height: 24px;
   position: absolute;
-  display: inline-block;
   top: calc(50% - 33px);
   padding: 3px;
   border-top: none;
@@ -28,10 +27,14 @@
   cursor: pointer;
   outline: none;
 
-  &:focus,
-  &:active {
+  &:focus:not(:disabled),
+  &:active:not(:disabled) {
     border-width: 2px;
     border-color: $sapphire;
+  }
+
+  &:disabled {
+    opacity: 0.3;
   }
 
   @include vp-1199 {

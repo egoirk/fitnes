@@ -149,21 +149,11 @@
 }
 
 .reviews__comment-text {
-  overflow-y: scroll;
+  overflow: hidden;
   max-height: 90px;
   margin-right: -5px;
-
-  &::-webkit-scrollbar {
-    width: 3px;
-  }
-
-  &::-webkit-scrollbar-thumb {
-    border-radius: 2px;
-    background: $ghost-white;
-  }
 
   @include vp-767 {
     max-height: 195px;
   }
 }
-

@@ -1,22 +1,22 @@
 .coaches {
-  max-width: 1400px;
+  max-width: 1366px;
   display: flex;
   position: relative;
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  padding: 0 103px 80px;
+  padding: 0 103px 120px;
   margin: 0 auto;
   font-family: "Roboto Condensed", "Arial", sans-serif;
 
   @include vp-1199 {
     align-items: center;
-    padding: 0 100px 70px;
+    padding: 0 100px 100px;
   }
 
   @include vp-767 {
     padding: 0;
-    margin: 0 auto 16px;
+    margin: 0 auto 43px;
     width: 71%;
   }
 }
@@ -68,15 +68,16 @@
 }
 
 .coaches__list {
-  width: 100%;
   position: relative;
+  max-width: 1160px;
   display: flex;
-  flex-wrap: nowrap;
   align-items: stretch;
-  list-style: none;
+  flex-wrap: nowrap;
   margin: 0;
   padding: 0;
+  list-style: none;
   transition: left 0.3s;
+  column-gap: 40px;
 
   &--no-js {
     width: 100%;
@@ -100,94 +101,175 @@
       }
     }
   }
-}
-
-.coaches__item {
-  width: calc((100% - 120px) / 4);
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  flex-shrink: 0;
-  margin-right: 40px;
-  margin-bottom: 40px;
-  color: $color-default-white;
-  background-color: rgba($sapphire, 0.5);
-  overflow: hidden;
-  font-family: "Roboto Condensed", "Arial", sans-serif;
-
-  &:hover {
-    div {
-      &:first-child {
-        z-index: 3;
-        display: flex;
-      }
-    }
-
-    span {
-      display: none;
-    }
-  }
 
   @include vp-1199 {
-    width: calc((100% - 30px) / 2);
-    margin-right: 30px;
-    margin-bottom: 30px;
+    column-gap: 30px;
   }
 
   @include vp-767 {
-    width: 100%;
-    margin-right: 0;
+    column-gap: 0;
   }
 }
 
-.coaches__item span {
+.coaches__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  width: calc((100% - 120px) / 4);
+  height: 294px;
+
+  @include vp-1199 {
+    width: calc((100% - 30px) / 2);
+    height: 294px;
+  }
+
+  @include vp-767 {
+    width: 276px;
+    height: 274px;
+  }
+}
+
+.card__side--description {
+  position: relative;
+  color: $color-default-white;
+  background-color: rgba($sapphire, 0.89);
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 58px 0 30px 55px;
+  flex-wrap: wrap;
+  justify-content: center;
+  z-index: 10;
+  margin-top: -294px;
+  padding: 30px 25px 35px;
+  min-height: 294px;
+  visibility: hidden;
+
+  @include vp-1199 {
+    margin-top: -303px;
+    padding-top: 50px;
+  }
+
+  @include vp-767 {
+    margin-top: -295px;
+  }
+}
+
+.card__side--title picture {
+  height: 294px;
+}
+
+.card__side--title img {
+  min-width: 260px;
+  min-height: 294px;
+  line-height: 0;
+
+  @include vp-1199 {
+    min-width: 268px;
+  }
+
+  @include vp-767 {
+    min-width: 226px;
+    min-height: 274px;
+  }
+}
+
+.card__side--title span {
   position: absolute;
   bottom: 24px;
   z-index: 2;
   font-weight: 700;
   font-size: 18px;
   line-height: 27px;
+  color: $color-default-white;
+  padding-left: 78px;
+  align-items: center;
+}
 
-  @include vp-1199 {
-    bottom: 22px;
-    left: 85px;
+.card:hover .card__side--description {
+  visibility: visible;
+}
+
+.card--focused .card__side--description {
+  visibility: visible;
+}
+
+.card__wrapper {
+  padding: 0;
+  margin: 0;
+  height: 282px;
+  overflow: auto;
+  padding-bottom: 5px;
+
+  &::-webkit-scrollbar {
+    width: 3px;
+    height: 275px;
+    background-color: #011c40;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: $color-default-white;
   }
 }
 
-.coaches__item-wrapper {
-  width: 100%;
-  height: 294px;
-  position: relative;
-  left: 0;
-  top: 0;
-  z-index: 0;
-  color: $color-default-white;
-  background-color: rgba($sapphire, 0.89);
+.card__side--description h3 {
+  margin-top: 18px;
+  margin-left: -2px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 27px;
+  font-family: "Roboto Condensed", "Arial", sans-serif;
 
   @include vp-1199 {
-    padding: 52px 0 25px;
+    margin: 0;
+    padding: 0;
   }
 
   @include vp-767 {
-    height: 274px;
-    padding: 43px 0 25px;
+    padding-top: 15px;
   }
 }
 
-.coaches__info {
-  margin-top: 58px;
-  margin-bottom: 30px;
-  margin-left: 55px;
-  width: 165px;
-  height: 205px;
-  display: flex;
-  flex-shrink: 0;
-  flex-direction: column;
-  overflow-y: scroll;
-  justify-content: flex-start;
-  align-items: center;
+.card__side--description h4 {
+  margin: 0;
+  color: $spindle;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 24px;
+  margin-top: -22px;
+  padding-right: 0;
+  padding-bottom: 32px;
+
+  @include vp-1199 {
+    margin: -4px 0 0;
+    padding: 0;
+    padding-bottom: 32px;
+  }
+}
+
+.card__side--description ul {
+  list-style: disc;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+  font-family: "Roboto Condensed", "Arial", sans-serif;
+}
+
+.card__achiev {
+  font-weight: normal;
+  height: 125px;
+  font-size: 14px;
+  line-height: 21px;
   padding: 0;
+  margin: 0;
+  margin-right: 10px;
+  padding-left: 46px;
+  overflow-y: scroll;
 
   &::-webkit-scrollbar {
     width: 3px;
@@ -198,88 +280,12 @@
     background: $ghost-white;
   }
 
-  @include vp-1199 {
-    margin: 0 auto;
-    padding-right: 5px;
-    width: 180px;
-    height: 205px;
-  }
-}
-
-.coaches__info h3 {
-  margin-top: -7px;
-  margin-left: -10px;
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 27px;
-  font-family: "Roboto Condensed", "Arial", sans-serif;
-
-  @include vp-1199 {
+  @include vp-767 {
+    padding-left: 25px;
     margin: 0;
-    padding: 0;
   }
 }
 
-.coaches__info h4 {
-  margin: 0;
-  color: $spindle;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 24px;
-  margin-top: -22px;
-  padding-right: 9px;
-  padding-bottom: 32px;
-
-  @include vp-1199 {
-    margin: -4px 0 0;
-    padding: 0;
-    padding-bottom: 32px;
-  }
-}
-
-.coaches__info ul {
-  list-style: disc;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 21px;
-  font-family: "Roboto Condensed", "Arial", sans-serif;
-}
-
-.coaches__achiev {
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 21px;
-  padding: 0;
-  margin: 0;
-  padding-left: 16px;
-
-  @include vp-1199 {
-    font-size: 12px;
-  }
-}
-
-.coaches__achiev li {
+.card__achiev li {
   padding-bottom: 13px;
-}
-
-.coaches__photo {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  color: $color-default-white;
-  background-color: $sapphire;
-
-  picture {
-    width: 100%;
-  }
-
-  img {
-    width: 100%;
-  }
 }

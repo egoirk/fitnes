@@ -173,13 +173,6 @@
 }
 
 .about__video-link {
-  width: 100%;
-  height: 100%;
-
-  @include vp-767 {
-    min-height: 167px;
-  }
-
   &::before {
     content: "";
     position: absolute;
@@ -225,5 +218,20 @@
       transform: translate(-50%, -50%) scale(1.1);
       opacity: 1;
     }
+  }
+}
+
+.about__video-media {
+  width: 364px;
+  height: 228px;
+
+  @include vp-1199 {
+    width: 266px;
+    height: 167px;
+  }
+
+  @include vp-767 {
+    width: 320px;
+    height: 167px;
   }
 }
