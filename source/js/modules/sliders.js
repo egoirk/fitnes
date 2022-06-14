@@ -7,7 +7,8 @@ const deactivateButton = function (button) {
 };
 
 const slideForward = function (element, item, leftArrow, rightArrow) {
-  const gutter = parseInt(window.getComputedStyle(item, null).marginRight, 10);
+  let gutter = parseInt(window.getComputedStyle(element, null).columnGap, 10);
+  gutter = gutter ? gutter : 0;
 
   if (element.scrollWidth - Math.abs(element.offsetLeft) > element.offsetWidth) {
     element.style.left = element.offsetLeft - item.offsetWidth - gutter + 'px';
@@ -18,7 +19,8 @@ const slideForward = function (element, item, leftArrow, rightArrow) {
 };
 
 const slideBackward = function (element, item, leftArrow, rightArrow) {
-  const gutter = parseInt(window.getComputedStyle(item, null).marginRight, 10);
+  let gutter = parseInt(window.getComputedStyle(element, null).columnGap, 10);
+  gutter = gutter ? gutter : 0;
 
   if (element.offsetLeft < 0) {
     element.style.left = element.offsetLeft + item.offsetWidth + gutter + 'px';
@@ -41,46 +43,44 @@ export function initSliders() {
   const reviewsControlForward = reviewsContainerElement.querySelector('.arrow-control--forward');
   const reviewsControlBackward = reviewsContainerElement.querySelector('.arrow-control--backward');
   const reviewsListItem = reviewsListElement.querySelector('.reviews__item');
-  const isTranersAnimated = false;
 
-  trenersListElement.classList.remove('coaches__list--no-js');
-  trenersListElement.style.left = '0px';
-  reviewsListElement.classList.remove('reviews__list--no-js');
-  reviewsListElement.style.left = '0px';
   arrowsElements.forEach(function (element) {
     element.classList.remove('arrow-control--no-js');
   });
-  deactivateButton(trenersControlBackward);
-  deactivateButton(reviewsControlBackward);
+  if (trenersListElement && trenersListItem && trenersControlBackward && trenersControlForward) {
+    initSlider(trenersListElement, 'coaches__list--no-js', trenersListItem, trenersControlBackward, trenersControlForward);
+  }
 
-  trenersListElement.addEventListener('animationstart', function () {
-    isTranersAnimated = true;
+  if (reviewsListElement && reviewsListItem && reviewsControlBackward && reviewsControlForward) {
+    initSlider(reviewsListElement, 'reviews__list--no-js', reviewsListItem, reviewsControlBackward, reviewsControlForward);
+  }
+}
+
+function initSlider(list, listNoJsClass, item, leftArrow, rightArrow) {
+  let isSliderAnimated = false;
+  list.classList.remove(listNoJsClass);
+  list.style.left = '0px';
+  deactivateButton(leftArrow);
+
+  list.addEventListener('animationstart', function () {
+    isSliderAnimated = true;
   }, false);
 
-  trenersListElement.addEventListener('animationend', function () {
-    isTranersAnimated = false;
+  list.addEventListener('animationend', function () {
+    isSliderAnimated = false;
   }, false);
 
-  trenersControlForward.addEventListener('click', function () {
-    if (isTranersAnimated) {
+  rightArrow.addEventListener('click', function () {
+    if (isSliderAnimated) {
       return;
     }
-    slideForward(trenersListElement, trenersListItem, trenersControlBackward, trenersControlForward);
+    slideForward(list, item, leftArrow, rightArrow);
   });
 
-  trenersControlBackward.addEventListener('click', function () {
-    if (isTranersAnimated) {
+  leftArrow.addEventListener('click', function () {
+    if (isSliderAnimated) {
       return;
     }
-    slideBackward(trenersListElement, trenersListItem, trenersControlBackward, trenersControlForward);
+    slideBackward(list, item, leftArrow, rightArrow);
   });
-
-  reviewsControlForward.addEventListener('click', function () {
-    slideForward(reviewsListElement, reviewsListItem, reviewsControlBackward, reviewsControlForward);
-  });
-
-  reviewsControlBackward.addEventListener('click', function () {
-    slideBackward(reviewsListElement, reviewsListItem, reviewsControlBackward, reviewsControlForward);
-  });
-
 }

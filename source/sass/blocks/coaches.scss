@@ -138,9 +138,7 @@
   display: flex;
   flex-shrink: 0;
   flex-direction: column;
-  justify-content: flex-start;
   align-items: center;
-  padding: 58px 0 30px 55px;
   flex-wrap: wrap;
   justify-content: center;
   z-index: 10;
@@ -192,6 +190,10 @@
 
 .card:hover .card__side--description {
   visibility: visible;
+}
+
+.card:hover .card__side--title span {
+  display: none;
 }
 
 .card--focused .card__side--description {

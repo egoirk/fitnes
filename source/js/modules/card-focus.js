@@ -1,7 +1,6 @@
 // focus card__side--description
 const cardDescription = document.querySelectorAll('.card');
 
-
 export function initFocus() {
   cardDescription.forEach(function (item) {
     item.addEventListener('focus', function () {
